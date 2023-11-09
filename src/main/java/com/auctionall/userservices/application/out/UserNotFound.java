@@ -1,3 +1,5 @@
 package com.auctionall.userservices.application.out;
 
-public class UserNotFound extends RuntimeException { }
+public class UserNotFound extends RuntimeException {
+
+}

@@ -1,10 +1,15 @@
 package com.auctionall.userservices.application.out;
 
 import com.auctionall.userservices.application.domain.User;
-
-import java.util.UUID;
+import com.auctionall.userservices.infrastructure.reactive.UnitReactive;
 
 public interface Users {
-    User findUserById(UUID userId) throws UserNotFound;
-    User save(User user);
+    UnitReactive<User> findUserById(Integer userId) throws UserNotFound;
+
+    UnitReactive<Boolean> existsUserById(Integer userId);
+
+    public UnitReactive<Boolean> existsUserByName(User user);
+
+    UnitReactive<User> save(User user);
+
 }

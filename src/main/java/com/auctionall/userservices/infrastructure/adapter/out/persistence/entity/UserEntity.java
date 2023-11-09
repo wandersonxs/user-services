@@ -1,4 +1,4 @@
-package com.auctionall.userservices.infrastructure.adapter.out.persistence.model;
+package com.auctionall.userservices.infrastructure.adapter.out.persistence.entity;
 
 import com.auctionall.userservices.application.domain.User;
 import com.auctionall.userservices.application.domain.shared.Status;
@@ -12,8 +12,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDate;
-import java.util.Objects;
-import java.util.UUID;
 
 @Setter
 @Getter
@@ -22,17 +20,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder(toBuilder = true)
 @Table(name = "users")
-public class UserData {
+public class UserEntity {
 
     @Id
-    private UUID id;
-
+    private Integer id;
     private String name;
-
     private LocalDate dateOfBirth;
-
     private String status;
-
 
     public User toDomain() {
         return new User(
@@ -43,9 +37,9 @@ public class UserData {
         );
     }
 
-    public static UserData fromDomain(User user) {
-        var entity = new UserData();
-        entity.setId(Objects.isNull(user.id()) ? UUID.randomUUID() : user.id());
+    public static UserEntity fromDomain(User user) {
+        var entity = new UserEntity();
+        entity.setId(user.id());
         entity.setName(user.name());
         entity.setDateOfBirth(user.dateOfBirth());
         entity.setStatus(user.status().name());
