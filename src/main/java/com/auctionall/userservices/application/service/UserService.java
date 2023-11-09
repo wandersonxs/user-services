@@ -1,6 +1,6 @@
 package com.auctionall.userservices.application.service;
 
-import com.auctionall.userservices.application.architecture.UseCase;
+import com.auctionall.userservices.infrastructure.annotations.UseCase;
 import com.auctionall.userservices.application.domain.User;
 import com.auctionall.userservices.application.in.FindUser;
 import com.auctionall.userservices.application.in.RegisteringUser;
@@ -9,7 +9,6 @@ import com.auctionall.userservices.application.out.UserNotFound;
 import com.auctionall.userservices.application.out.Users;
 
 import java.util.Objects;
-import java.util.Optional;
 import java.util.UUID;
 
 @UseCase
@@ -39,7 +38,7 @@ public class UserService implements RegisteringUser, UpdatingUser, FindUser {
 
     @Override
     public User findUserById(UUID userId) {
-        return null;
+        return users.findUserById(userId);
     }
 
     private User buildUser(UUID userId, User user){

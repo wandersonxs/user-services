@@ -1,4 +1,4 @@
-package com.auctionall.userservices.application.architecture;
+package com.auctionall.userservices.infrastructure.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
