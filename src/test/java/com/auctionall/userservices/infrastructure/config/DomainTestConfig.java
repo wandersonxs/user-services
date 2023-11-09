@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
 @TestConfiguration
-@Import(DomainConfig.class)
+//@Import(DomainConfig.class)
 public class DomainTestConfig {
     @Bean
     Users users() {
